@@ -75,17 +75,15 @@ nav {
     height: 60px;
     background: #0500ff;
     transition: transform 0.3s ease;
-    z-index: 99;
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.top-menu.active {
-    transform: translateY(60px);
-}
-
 .menu-items {
+    position: relative;
+    z-index: 101;
     display: flex;
     gap: 2rem;
     padding: 0 20px;

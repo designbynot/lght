@@ -7,14 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hamburger menu functionality
     hamburger.addEventListener('click', () => {
+        const menuHeight = topMenu.scrollHeight;
+        topMenu.style.transform = `translateY(${menuHeight}px)`;
         menuOverlay.style.display = 'block';
-        topMenu.classList.add('active');
         hamburger.classList.add('menu-open');
     });
 
     menuOverlay.addEventListener('click', () => {
+        topMenu.style.transform = 'translateY(0)';
         menuOverlay.style.display = 'none';
-        topMenu.classList.remove('active');
         hamburger.classList.remove('menu-open');
     });
 
@@ -30,6 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         if (!higherPopup.contains(e.target) && e.target !== higherLink) {
             higherPopup.style.display = 'none';
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (menuOverlay.style.display === 'block') {
+            const menuHeight = topMenu.scrollHeight;
+            topMenu.style.transform = `translateY(${menuHeight}px)`;
         }
     });
 });

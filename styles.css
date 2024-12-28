@@ -89,6 +89,10 @@ nav {
     display: flex;
     gap: 2rem;
     padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .menu-item {
@@ -99,6 +103,7 @@ nav {
     letter-spacing: -0.07em;
     text-transform: lowercase;
     transition: opacity 0.2s ease;
+    white-space: nowrap;
 }
 
 .menu-item:hover {
@@ -106,10 +111,14 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
+    .top-menu {
+        height: auto;
+        padding: 15px 0;
+    }
+    
     .menu-items {
         gap: 1rem;
         flex-wrap: wrap;
-        justify-content: center;
     }
     
     .menu-item {
